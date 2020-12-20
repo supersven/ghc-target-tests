@@ -1,0 +1,14 @@
+#include "Cmm.h"
+
+printer(I64 i) {
+    ccall printf("%d", i);
+    jump exit_cmm();
+}
+
+exit_cmm() {
+    foreign "C" exit(0);
+}
+
+main(I32 argc, I32 argv_ptr) {
+    jump printer(42);
+}

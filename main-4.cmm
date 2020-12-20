@@ -1,0 +1,21 @@
+#include "Cmm.h"
+
+printer(I64 a, I64 b, I64 c, I64 d, I64 e) {
+    ccall printf("a: %d, b: %d, c: %d, d: %d, e: %d", a, b, c, d, e);
+    jump exit_cmm();
+}
+
+exit_cmm() {
+    foreign "C" exit(0);
+}
+
+main(I32 argc, I32 argv_ptr) {
+    W_ stack;
+
+    // The size is bogus here: More than enough to hold an int.
+    ("ptr" stack) = ccall malloc(1024);
+
+    Sp = stack;
+
+    jump printer(1, 2, 3, 4, 5);
+}
