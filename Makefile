@@ -44,6 +44,7 @@ clean:
 	rm -f *.exe
 	rm -f *.hi
 	rm -f debug/*.exe
+	rm -f *.dump-cmm
 
 show-defaults:
 	mips64el-linux-gnuabi64-gcc -Q --help=target
