@@ -1,0 +1,9 @@
+*.dump-*
+*.hi
+*.o
+*.exe.s
+*.ll
+*.s
+*.core
+*.vscode
+*.mips.exe
