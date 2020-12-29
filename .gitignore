@@ -7,3 +7,5 @@
 *.core
 *.vscode
 *.mips.exe
+*.log.*
+compile_commands.json

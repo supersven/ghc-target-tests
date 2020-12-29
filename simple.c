@@ -1,6 +1,6 @@
 #include <HsFFI.h>
 #ifdef __GLASGOW_HASKELL__
-#include "Fibonacci_stub.h"
+#include "Simple_stub.h"
 #endif
 #include <stdio.h>
 

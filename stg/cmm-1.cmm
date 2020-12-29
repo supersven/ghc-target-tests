@@ -1,0 +1,19 @@
+#include "Cmm.h"
+
+forty_two {
+    W_ stack;
+    // The size is bogus here: More than enough to hold an int.
+    ("ptr" stack) = ccall malloc(1024);
+    Sp = stack;
+
+    R1 = 42;
+
+    // Prepare returning to C-land - see stg_stop_thread
+    Sp(1) = R1;
+    Sp(0) = stg_enter_info;
+
+    StgRegTable_rRet(BaseReg) = ThreadFinished;
+    R1 = BaseReg;
+
+    jump StgReturn [R1];
+}
